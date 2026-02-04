@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Volvo -->
+        <record id="car_volvo" model="car.rental.car">
+            <field name="name">Volvo V60</field>
+            <field name="license_plate">ABC123</field>
+            <field name="daily_price">600.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/volvo.png"/>
+        </record>
+
+        <!-- Ford -->
+        <record id="car_ford" model="car.rental.car">
+            <field name="name">Ford Focus</field>
+            <field name="license_plate">FORD123</field>
+            <field name="daily_price">500.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/ford.png"/>
+        </record>
+
+        <!-- BMW -->
+        <record id="car_bmw" model="car.rental.car">
+            <field name="name">BMW 320i</field>
+            <field name="license_plate">BMW320</field>
+            <field name="daily_price">750.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/bmw.png"/>
+        </record>
+
+        <!-- Tesla -->
+        <record id="car_tesla" model="car.rental.car">
+            <field name="name">Tesla Model 3</field>
+            <field name="license_plate">TESLA3</field>
+            <field name="daily_price">900.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/tesla.png"/>
+        </record>
+
+        <!-- Honda -->
+        <record id="car_honda" model="car.rental.car">
+            <field name="name">Honda Civic</field>
+            <field name="license_plate">HONDA01</field>
+            <field name="daily_price">450.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/honda.png"/>
+        </record>
+
+        <!-- SAAB -->
+        <record id="car_saab" model="car.rental.car">
+            <field name="name">SAAB 9-5</field>
+            <field name="license_plate">SAAB95</field>
+            <field name="daily_price">550.0</field>
+            <field name="image_1920" type="base64" file="car_booking/static/src/img/saab.png"/>
+        </record>
+
+    </data>
+</odoo>

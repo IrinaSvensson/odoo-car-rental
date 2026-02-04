@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_car_rental_car_user,access.car.rental.car.user,model_car_rental_car,base.group_user,1,1,1,1
+access_car_rental_booking_user,access.car.rental.booking.user,model_car_rental_booking,base.group_user,1,1,1,1
+access_create_invoice_wizard_car_rental,access.create.invoice.wizard.car.rental,model_create_invoice_wizard_car_rental,base.group_user,1,1,1,1
+

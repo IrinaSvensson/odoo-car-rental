@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form-vy för CreateInvoiceWizardCarRental -->
+    <record id="view_create_invoice_wizard_car_rental_form" model="ir.ui.view">
+        <field name="name">create.invoice.wizard.car.rental.form</field>
+        <field name="model">create.invoice.wizard.car.rental</field>
+        <field name="arch" type="xml">
+            <form string="Skapa Faktura">
+                <group>
+                    <field name="car_id" readonly="1"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                </group>
+                <footer>
+                    <button name="action_create_invoice"
+                            string="Skapa"
+                            type="object"
+                    />
+                    <button string="Avbryt"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

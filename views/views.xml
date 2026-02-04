@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Lista över bilar -->
+    <record id="view_car_rental_car_list" model="ir.ui.view">
+        <field name="name">car.rental.car.list</field>
+        <field name="model">car.rental.car</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="license_plate"/>
+                <field name="daily_price"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Formulär för bil -->
+    <record id="view_car_rental_car_form" model="ir.ui.view">
+        <field name="name">car.rental.car.form</field>
+        <field name="model">car.rental.car</field>
+        <field name="arch" type="xml">
+            <form string="Car">
+                <header>
+                    <button name="open_create_wizard"
+                            string="Create Invoice"
+                            type="object"
+                            class="oe_stat_button btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="license_plate"/>
+                        <field name="daily_price"/>
+                        <field name="active"/>
+                        <field name="image_1920"
+                               widget="contact_image"
+                               options="{'preview_image': 'image_1920'}"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Bookings">
+                            <field name="booking_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="customer_id"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="state"/>
+                                    <field name="invoice_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Lista över bokningar -->
+    <record id="view_car_rental_booking_list" model="ir.ui.view">
+        <field name="name">car.rental.booking.list</field>
+        <field name="model">car.rental.booking</field>
+        <field name="arch" type="xml">
+            <list string="Bookings">
+                <field name="name"/>
+                <field name="car_id"/>
+                <field name="customer_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="days"/>
+                <field name="price_total"/>
+                <field name="state"/>
+                <field name="invoice_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Formulär för bokning -->
+    <record id="view_car_rental_booking_form" model="ir.ui.view">
+        <field name="name">car.rental.booking.form</field>
+        <field name="model">car.rental.booking</field>
+        <field name="arch" type="xml">
+            <form string="Car Booking">
+                <sheet>
+
+                    <div class="oe_title mw-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="flex-grow-1">
+                                <field class="text-break"
+                                       options="{'line_breaks': False}"
+                                       widget="text"
+                                       name="name"
+                                       placeholder=""/>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="car_id"/>
+                            <field name="customer_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+
+                        <group>
+                            <field name="days" readonly="1"/>
+                            <field name="price_total" readonly="1"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action för bilar -->
+    <record id="action_car_rental_car" model="ir.actions.act_window">
+        <field name="name">Cars</field>
+        <field name="res_model">car.rental.car</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p>Create and manage cars available for rental.</p>
+        </field>
+    </record>
+
+    <!-- Action för bokningar -->
+    <record id="action_car_rental_booking" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">car.rental.booking</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Root-meny -->
+    <menuitem id="menu_car_rental_root"
+              name="Car Rental"/>
+
+    <!-- Barn-meny: Cars -->
+    <menuitem id="menu_car_rental_cars"
+              name="Cars"
+              parent="menu_car_rental_root"
+              action="action_car_rental_car"
+              sequence="10"/>
+
+    <!-- Barn-meny: Bookings -->
+    <menuitem id="menu_car_rental_bookings"
+              name="Bookings"
+              parent="menu_car_rental_root"
+              action="action_car_rental_booking"
+              sequence="20"/>
+
+</odoo>
